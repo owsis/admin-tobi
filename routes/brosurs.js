@@ -59,7 +59,32 @@ router.delete('/:userId', function (req, res, next) {
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
-  res.send('respond with a resource');
+  Brosur.find()
+  .select('name brosurFile _id')
+  .exec()
+  .then(docs => {
+    const response = {
+      count: docs.length,
+      brosurs: docs.map(doc => {
+        return {
+          name: doc.name,
+          brosurFile: doc.brosurFile,
+          _id: doc._id,
+          request: {
+            type: 'GET',
+            url: 'http://admin-tobi.herokuapp.com/brosur/' + doc._id
+          }
+        }
+      })
+    };
+    res.status(200).json(response);
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json({
+      error: err
+    })
+  })
 });
 
 module.exports = router;
