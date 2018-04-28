@@ -8,7 +8,7 @@ const storage = multer.diskStorage({
     callback(null, './public/brosurs/');
   },
   filename: function (req, file, callback) {
-    callback(null, new Date().toISOString() + file.originalname);
+    callback(null, file.originalname);
   }
 });
 
