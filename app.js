@@ -23,7 +23,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'brosurs')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -31,6 +30,7 @@ app.use('/users-mongo', usersMongo);
 app.use('/unit', unitSP2);
 app.use('/customer', customers);
 app.use('/brosur', brosurs);
+app.use('/brosurs', express.static('brosurs'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
