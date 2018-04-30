@@ -5,7 +5,7 @@ var multer = require('multer');
 
 const storage = multer.diskStorage({
   destination: function (req, file, callback) {
-    callback(null, './public/brosurs/');
+    callback(null, './brosurs/');
   },
   filename: function (req, file, callback) {
     callback(null, file.originalname);
@@ -43,7 +43,7 @@ router.post('/', upload.single('brosurFile'), function (req, res, next) {
 });
 
 router.delete('/:userId', function (req, res, next) {
-  User.remove({ _id: req.params.userId })
+  Brosur.remove({ _id: req.params.userId })
     .exec()
     .then(result => {
       console.log(result);
@@ -74,7 +74,7 @@ router.get('/', function (req, res, next) {
           _id: doc._id,
           request: {
             type: 'GET',
-            url: 'http://admin-tobi.herokuapp.com/brosur/' + doc.brosurFile
+            url: 'http://admin-tobi.herokuapp.com/' + doc.brosurFile
           }
         }
       })
