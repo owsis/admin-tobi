@@ -89,4 +89,17 @@ router.get('/', function (req, res, next) {
   });
 });
 
+router.get('/download', function(req, res, next) {
+  Brosur.find({}, function (err, brosurs) {
+    if (err) {
+      console.log(err)
+    } else {
+      res.render('brosur', {
+        title: 'Download Brochure',
+        download: brosurs
+      }); 
+    }
+  })
+});
+
 module.exports = router;

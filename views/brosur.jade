@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  ul
+  each brosur, i in download
+    li
+    a(href='http://admin-tobi.herokuapp.com/' + brosur.brosurFile)= brosur.name
