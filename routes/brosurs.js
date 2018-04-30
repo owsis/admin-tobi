@@ -74,7 +74,7 @@ router.get('/', function (req, res, next) {
           _id: doc._id,
           request: {
             type: 'GET',
-            url: 'http://admin-tobi.herokuapp.com/brosur/' + doc._id
+            url: 'http://admin-tobi.herokuapp.com/brosur/' + doc.brosurFile
           }
         }
       })
