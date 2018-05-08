@@ -103,7 +103,37 @@ router.delete('/:userId', function (req, res, next) {
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
-  res.send('respond with a resource');
+  User.find()
+  .exec()
+  .then( docs => {
+    const response = {
+      count: docs.length,
+      units: docs
+    };
+    res.status(200).json(response)
+  })
+  .catch( err => {
+    res.status(500).json({
+      error: err
+    })
+  })
+});
+
+router.get('/:userEmail', function (req, res, next) {
+  User.find({ email: req.params.userEmail })
+    .exec()
+    .then(docs => {
+      const response = {
+        count: docs.length,
+        units: docs
+      };
+      res.status(200).json(response)
+    })
+    .catch(err => {
+      res.status(500).json({
+        error: err
+      })
+    })
 });
 
 module.exports = router;
