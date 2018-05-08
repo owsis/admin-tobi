@@ -3,10 +3,23 @@ var router = express.Router();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
-Unit = require('../models/unit');
+const Unit = require('../models/unit');
 
 mongoose.connect('mongodb://user_1:user_1@tobi-shard-00-00-bxq3i.mongodb.net:27017,tobi-shard-00-01-bxq3i.mongodb.net:27017,tobi-shard-00-02-bxq3i.mongodb.net:27017/tobi?ssl=true&replicaSet=Tobi-shard-0&authSource=admin');
 var db = mongoose.connection;
+
+router.get('/all', function (req, res, next) {
+  Unit.find({}, function (err, units) {
+    if (err) {
+      console.log(err)
+    } else {
+      res.render('unit', {
+        title: 'All Unit',
+        unit_no: units
+      })
+    }    
+  })
+})
 
 router.get('/', function (req, res, next) {
   Unit.find()

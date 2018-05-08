@@ -76,7 +76,21 @@ router.delete('/:userId', function (req, res, next) {
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
-  res.send('respond with a resource');
+  Customer.find()
+    .exec()
+    .then(docs => {
+      const response = {
+        count: docs.length,
+        units: docs
+      };
+      res.status(200).json(response);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({
+        error: err
+      });
+    });
 });
 
 module.exports = router;

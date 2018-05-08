@@ -8,7 +8,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var usersMongo = require('./routes/usersMongo');
-var unitSP2 = require('./routes/unitSP2');
+var unit = require('./routes/unit');
 var customers = require('./routes/customers');
 var brosurs = require('./routes/brosurs');
 
@@ -27,7 +27,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/users-mongo', usersMongo);
-app.use('/unit', unitSP2);
+app.use('/unit', unit);
 app.use('/customer', customers);
 app.use('/brosur', brosurs);
 app.use('/brosurs', express.static('brosurs'));

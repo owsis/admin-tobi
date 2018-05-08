@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  ul
+  each unit, i in unit_no
+    li
+    p= unit.block_unit 
+    p= unit.no_unit
