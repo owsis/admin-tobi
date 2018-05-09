@@ -68,7 +68,8 @@ router.post('/signin', function (req, res, next) {
         }
         if (result) {
           return res.status(200).json({
-            message: 'Auth Success'
+            message: 'Auth Success',
+            user: user
           });
         }
         return res.status(401).json({
