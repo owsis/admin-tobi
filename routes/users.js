@@ -60,6 +60,10 @@ router.post('/signin', function (req, res, next) {
           message: 'Auth failed'
         });
       }
+      const resp = {
+        message: 'Auth Successfull',
+        user: user
+      };
       bcrypt.compare(req.body.password, user[0].password, function (err, result) {
         if (err) {
           return res.status(401).json({
@@ -67,10 +71,7 @@ router.post('/signin', function (req, res, next) {
           });
         }
         if (result) {
-          return res.status(200).json({
-            message: 'Auth Success',
-            user: user
-          });
+          return res.status(200).json(resp);
         }
         return res.status(401).json({
             message: 'Auth failed'

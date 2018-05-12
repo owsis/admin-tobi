@@ -21,6 +21,7 @@ router.post('/', function (req, res, next) {
     phone: req.body.phone,
     reveal_code: req.body.reveal_code,
     first_payment: req.body.first_payment,
+    marketing_email: req.body.marketing_email,
     unit: {
       code_unit: req.body.code_unit,
       type_unit: req.body.type_unit
