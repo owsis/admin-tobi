@@ -32,4 +32,4 @@ const customerSchema = mongoose.Schema(
   }
 );
 
-const User = (module.exports = mongoose.model("Customer", customerSchema));
+const Customer = (module.exports = mongoose.model("Customer", customerSchema));

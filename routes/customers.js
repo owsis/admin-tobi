@@ -58,20 +58,19 @@ router.post('/', function (req, res, next) {
     });
 });
 
-router.delete('/:userId', function (req, res, next) {
-  User.remove({ _id: req.params.userId })
+router.get('/:marketing_e', function (req, res, next) {
+  Customer.find({ marketing_email: req.params.marketing_e })
     .exec()
-    .then(result => {
-      console.log(result);
-      res.status(200).json({
-        message: 'User deleted'
-      });
+    .then(docs => {
+      const response = { 
+        count: docs.length, 
+        customers: docs 
+      };
+      res.status(200).json(response);
     })
     .catch(err => {
       console.log(err);
-      res.status(500).json({
-        error: err
-      });
+      res.status(500).json({ error: err });
     });
 });
 
