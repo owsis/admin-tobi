@@ -5,7 +5,7 @@ var mongoose = require('mongoose');
 
 const Unit = require('../models/unit');
 
-mongoose.connect('mongodb://user_1:user_1@tobi-shard-00-00-bxq3i.mongodb.net:27017,tobi-shard-00-01-bxq3i.mongodb.net:27017,tobi-shard-00-02-bxq3i.mongodb.net:27017/tobi?ssl=true&replicaSet=Tobi-shard-0&authSource=admin');
+mongoose.connect('mongodb://localhost:27017/tobiapp');
 var db = mongoose.connection;
 
 router.get('/all', function (req, res, next) {
