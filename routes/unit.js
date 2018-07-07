@@ -5,7 +5,7 @@ var mongoose = require('mongoose');
 
 const Unit = require('../models/unit');
 
-mongoose.connect('mongodb://153.92.4.90:27017/tobiapp');
+mongoose.connect('localhost://153.92.4.90:27017/tobiapp');
 var db = mongoose.connection;
 
 router.get('/all', function (req, res, next) {
