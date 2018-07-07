@@ -40,7 +40,7 @@ const unitSchema = mongoose.Schema({
   },
 
 }, {
-    collection: 'unit'
+    collection: 't003s'
   });
 
 const Unit = module.exports = mongoose.model('Unit', unitSchema);

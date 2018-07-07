@@ -28,7 +28,7 @@ const customerSchema = mongoose.Schema(
     }
   },
   {
-    collection: "customer"
+    collection: "t004s"
   }
 );
 
