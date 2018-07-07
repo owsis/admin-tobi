@@ -18,7 +18,7 @@ const upload = multer({
 
 const Brosur = require('../models/brosur');
 
-mongoose.connect('mongodb://user_1:user_1@tobi-shard-00-00-bxq3i.mongodb.net:27017,tobi-shard-00-01-bxq3i.mongodb.net:27017,tobi-shard-00-02-bxq3i.mongodb.net:27017/tobi?ssl=true&replicaSet=Tobi-shard-0&authSource=admin');
+mongoose.connect('mongodb://localhost/tobiapp');
 var db = mongoose.connection;
 
 router.post('/', upload.single('brosurFile'), function (req, res, next) {
